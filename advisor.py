@@ -30,7 +30,6 @@ class Advisor:
     def get_top_papers(self):
         top_papers = []
         for paper in self.driver.find_elements(By.CLASS_NAME, "gsc_a_tr"):
-            return paper
             title = paper.text.split("\n")[0]
             authors = paper.text.split("\n")[1].split(",")
             number_citations = 0
