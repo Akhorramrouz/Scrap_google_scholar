@@ -21,7 +21,7 @@ class Advisor:
         # Extract top co-authors
         coauthors = []
         for co_author in self.driver.find_elements(By.CLASS_NAME, "gsc_rsb_aa"):
-            co_author_name = co_author.text.split("\n")[0]
+            co_author_name = BeautifulSoup(co_author.get_attribute("outerHTML"),'html.parser').find("span", class_="gsc_rsb_a_desc").find('a').text
             co_author_scholar_link = self.get_coauthor_link(co_author.get_attribute("outerHTML"))
             coauthors.append((co_author_name, co_author_scholar_link))
         return coauthors
