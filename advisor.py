@@ -69,7 +69,7 @@ class Advisor:
         research_interests = [interest.text for interest in research_interests]
 
         # Extract affiliation
-        affiliation = soup.select('div.gsc_prf_il a')[0].text.strip()
+        affiliation = self.driver.find_element(By.CLASS_NAME,"gsc_prf_il ").text.strip()
 
         # Extract homepage link
         try:
